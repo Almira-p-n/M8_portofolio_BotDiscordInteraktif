@@ -1,4 +1,4 @@
-# M8_portofolio_BotDiscordInteraktif
+# School Schedule Discord Bot
 ## Alat yang akan saya gunakan untuk mengerjakan ide:
 > discord
 
