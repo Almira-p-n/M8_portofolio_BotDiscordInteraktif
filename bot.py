@@ -17,22 +17,7 @@ async def start(ctx):
     await ctx.send("Hi! I'm a chat manager bot!")
 
 @bot.command()
-@commands.has_permissions(ban_members=True)
-async def ban(ctx, member: discord.Member = None):
-    if member:
-        if ctx.author.top_role <= member.top_role:
-            await ctx.send("It is not possible to ban a user with equal or higher rank!")
-        else:
-            await ctx.guild.ban(member)
-            await ctx.send(f"User {member.name} was banned.")
-    else:
-        await ctx.send("This command should point to the user you want to ban. For example: `!ban @user`")
-
-@ban.error
-async def ban_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send("You do not have sufficient permissions to execute this command.")
-    elif isinstance(error, commands.MemberNotFound):
-        await ctx.send("User not found.")
+async def info(ctx):
+    await ctx.send("I'm a chat manager bot! I can help you manage your server.")
 
 bot.run(TOKEN)
