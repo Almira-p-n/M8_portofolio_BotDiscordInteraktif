@@ -45,7 +45,6 @@ async def get_jadwal_normatif(ctx, hari: str):
         response = f"Tidak ada jadwal normatif untuk {hari}."
     await ctx.send(response)
 
-<<<<<<< HEAD
 @bot.command(name='jadwal_produktif')
 async def get_jadwal_produktif(ctx, hari: str):
     hari = hari.capitalize()
@@ -59,6 +58,3 @@ async def get_jadwal_produktif(ctx, hari: str):
     await ctx.send(response)
 
 bot.run(TOKEN)
-=======
-bot.run(TOKEN)
->>>>>>> ccf7df32407bafa49db5ba3ea1dfb514c441bd31
