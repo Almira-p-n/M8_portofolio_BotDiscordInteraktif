@@ -117,14 +117,14 @@ async def on_interaction(interaction):
     }
 
     if interaction.data.get("custom_id") in hariproduktif_buttons:
-            hari = hariproduktif_buttons[interaction.data.get("custom_id")]
-            jadwal = manager.get_JadwalProduktif(hari)
-            if jadwal:
-                response = f"Jadwal Produktif untuk {hari}:\n"
-                for item in jadwal:
-                    response += f"- {item[2]} pada waktu {item[3]}\n"
-            else:
-                response = f"Tidak ada jadwal produktif untuk {hari}."
-            await interaction.response.send_message(response, ephemeral=True)
+        hari = hariproduktif_buttons[interaction.data.get("custom_id")]
+        jadwal = manager.get_JadwalProduktif(hari)
+        if jadwal:
+            response = f"Jadwal Produktif untuk {hari}:\n"
+            for item in jadwal:
+                response += f"- {item[2]} pada waktu {item[3]}\n"
+        else:
+            response = f"Tidak ada jadwal produktif untuk {hari}."
+        await interaction.response.send_message(response, ephemeral=True)
 
 bot.run(TOKEN)
