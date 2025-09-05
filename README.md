@@ -5,5 +5,5 @@
 
 ## Proyek ini akan berisi:
 > Jadwal pelajaran sekolah yang interaktif,
-> Bisa memilih hari untuk melihat jadwal pada hari tersebut
+> Bisa memilih hari untuk melihat jadwal pada hari tersebut,
 > Tombol yang interaktif
