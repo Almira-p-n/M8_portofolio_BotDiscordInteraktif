@@ -1,6 +1,6 @@
 # School Schedule Discord Bot
 ## Alat yang akan saya gunakan untuk mengerjakan ide:
-> discord
+> discord,
 > data.db atau database untuk menampilkan jadwal sekolah
 
 ## Proyek ini akan berisi:
