@@ -3,9 +3,8 @@ from discord.ext import commands
 from config import TOKEN, DATABASE  # Import the bot's token from configuration file
 from logic import DB_Manager
 
-intents = discord.Intents.default()
-intents.members = True  # Allows the bot to work with users and ban them
-intents.message_content = True
+intents = discord.Intents.all()
+intents.messages = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 manager = DB_Manager(DATABASE)
