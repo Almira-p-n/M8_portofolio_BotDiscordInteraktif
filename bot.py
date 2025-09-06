@@ -17,18 +17,18 @@ async def on_ready():
 async def get_start(ctx):
 
     # tombol info, help, dan jadwal
-    view = discord.ui.View(timeout=None)
+    menu = discord.ui.View(timeout=None)
     button_info = discord.ui.Button(label="Info❕", style=discord.ButtonStyle.primary, custom_id="info_button")
     button_help = discord.ui.Button(label="Help❔", style=discord.ButtonStyle.primary, custom_id="help_button")
     button_jadwal = discord.ui.Button(label="Jadwal Pelajaran Sekolah📖💻", style=discord.ButtonStyle.green, custom_id="jadwal_button")
-    view.add_item(button_info)
-    view.add_item(button_help)
-    view.add_item(button_jadwal)
+    menu.add_item(button_info)
+    menu.add_item(button_help)
+    menu.add_item(button_jadwal)
 
     await ctx.send("Selamat datang di bot jadwal sekolah👋😊!\n"
     "Tekan tombol 'Info' untuk melihat daftar perintah.\n"
     "Atau tekan tombol 'Help' untuk bantuan lebih lanjut.\n"
-    "Atau langsung tekan tombol Jadwal Pelajaran Sekolah untuk melihat jadwal Anda", view=view)
+    "Atau langsung tekan tombol Jadwal Pelajaran Sekolah untuk melihat jadwal Anda", view=menu)
 
 @bot.event
 async def on_interaction(interaction):
