@@ -10,22 +10,22 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 manager = DB_Manager(DATABASE)
 
 @bot.event
-async def on_ready():
+async def on_ready():    
     print(f'Bot sudah aktif : {bot.user.name}')
 
 @bot.command(name='start')
 async def get_start(ctx):
 
     # tombol info, help, dan jadwal
-    view = discord.ui.View(timeout=1)
-    button_info = discord.ui.Button(label="Info", style=discord.ButtonStyle.primary, custom_id="info_button")
-    button_help = discord.ui.Button(label="Help", style=discord.ButtonStyle.primary, custom_id="help_button")
-    button_jadwal = discord.ui.Button(label="Jadwal Pelajaran Sekolah", style=discord.ButtonStyle.green, custom_id="jadwal_button")
+    view = discord.ui.View(timeout=None)
+    button_info = discord.ui.Button(label="Info❕", style=discord.ButtonStyle.primary, custom_id="info_button")
+    button_help = discord.ui.Button(label="Help❔", style=discord.ButtonStyle.primary, custom_id="help_button")
+    button_jadwal = discord.ui.Button(label="Jadwal Pelajaran Sekolah📖💻", style=discord.ButtonStyle.green, custom_id="jadwal_button")
     view.add_item(button_info)
     view.add_item(button_help)
     view.add_item(button_jadwal)
 
-    await ctx.send("Halo👋😊! Aku adalah bot jadwal sekolahmu.\n" \
+    await ctx.send("Selamat datang di bot jadwal sekolah👋😊!\n"
     "Tekan tombol 'Info' untuk melihat daftar perintah.\n"
     "Atau tekan tombol 'Help' untuk bantuan lebih lanjut.\n"
     "Atau langsung tekan tombol Jadwal Pelajaran Sekolah untuk melihat jadwal Anda", view=view)
@@ -50,8 +50,8 @@ async def on_interaction(interaction):
     if interaction.data.get("custom_id") == "jadwal_button":
         # tombol jadwal normatif dan produktif
         view = discord.ui.View(timeout=None)
-        button_jadwalnormatif = discord.ui.Button(label="Jadwal Normatif", style=discord.ButtonStyle.green, custom_id="jadwalnormatif_button")
-        button_jadwalproduktif = discord.ui.Button(label="Jadwal Produktif", style=discord.ButtonStyle.green, custom_id="jadwalproduktif_button")
+        button_jadwalnormatif = discord.ui.Button(label="Jadwal Normatif📖", style=discord.ButtonStyle.green, custom_id="jadwalnormatif_button")
+        button_jadwalproduktif = discord.ui.Button(label="Jadwal Produktif💻", style=discord.ButtonStyle.green, custom_id="jadwalproduktif_button")
         view.add_item(button_jadwalnormatif)
         view.add_item(button_jadwalproduktif)
         await interaction.response.send_message("Silahkan pilih jenis jadwal:", ephemeral=True, view=view)
@@ -90,11 +90,11 @@ async def on_interaction(interaction):
         hari = harinormatif_buttons[interaction.data.get("custom_id")]
         jadwal = manager.get_JadwalNormatif(hari)
         if jadwal:
-            response = f"Jadwal Normatif untuk {hari}:\n"
+            response = f"🗓️Jadwal Normatif untuk Hari {hari}:\n"
             for item in jadwal:
                 response += f"- {item[2]} pada pukul {item[3]}\n"
         else:
-            response = f"Tidak ada jadwal normatif, karena Anda libur pada hari {hari}."
+            response = f"Tidak ada jadwal normatif, karena Anda libur pada Hari {hari}."
         await interaction.response.send_message(response, ephemeral=True)
 
     # tombol hari jadwal produktif
@@ -132,11 +132,15 @@ async def on_interaction(interaction):
         hari = hariproduktif_buttons[interaction.data.get("custom_id")]
         jadwal = manager.get_JadwalProduktif(hari)
         if jadwal:
-            response = f"Jadwal Produktif untuk {hari}:\n"
+            response = f"🗓️Jadwal Produktif untuk Hari {hari}:\n"
             for item in jadwal:
                 response += f"- {item[2]} pada pukul {item[3]}\n"
         else:
-            response = f"Tidak ada jadwal produktif, karena Anda libur pada hari {hari}."
+            response = f"Tidak ada jadwal produktif, karena Anda libur pada Hari {hari}."
         await interaction.response.send_message(response, ephemeral=True)
+
+@bot.command(name='terimakasih')
+async def get_thanks(ctx):
+    await ctx.send("Sama-sama😊! Senang bisa membantu kamu.")
 
 bot.run(TOKEN)
