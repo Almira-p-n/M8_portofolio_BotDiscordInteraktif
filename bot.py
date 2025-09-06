@@ -17,7 +17,7 @@ async def on_ready():
 async def get_start(ctx):
 
     # tombol info, help, dan jadwal
-    view = discord.ui.View(timeout=None)
+    view = discord.ui.View(timeout=1)
     button_info = discord.ui.Button(label="Info", style=discord.ButtonStyle.primary, custom_id="info_button")
     button_help = discord.ui.Button(label="Help", style=discord.ButtonStyle.primary, custom_id="help_button")
     button_jadwal = discord.ui.Button(label="Jadwal Pelajaran Sekolah", style=discord.ButtonStyle.green, custom_id="jadwal_button")
