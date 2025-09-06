@@ -119,13 +119,13 @@ async def on_interaction(interaction):
 
     # hari jadwal produktif
     hariproduktif_buttons = {
-        "seninproduktif_button": "Senin",
-        "selasaproduktif_button": "Selasa",
-        "rabuproduktif_button": "Rabu",
-        "kamisproduktif_button": "Kamis",
-        "jumatproduktif_button": "Jumat",
-        "sabtuproduktif_button": "Sabtu",
-        "mingguproduktif_button": "Minggu"
+    "seninproduktif_button": "Senin",
+    "selasaproduktif_button": "Selasa",
+    "rabuproduktif_button": "Rabu",
+    "kamisproduktif_button": "Kamis",
+    "jumatproduktif_button": "Jumat",
+    "sabtuproduktif_button": "Sabtu",
+    "mingguproduktif_button": "Minggu"
     }
 
     if interaction.data.get("custom_id") in hariproduktif_buttons:
