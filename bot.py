@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from config import TOKEN, DATABASE  # import TOKEN dan DATABASE dari config.py
-from logic import DB_Manager
+from database import DB_Manager
 
 intents = discord.Intents.all()
 intents.messages = True
