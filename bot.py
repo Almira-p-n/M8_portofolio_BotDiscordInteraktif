@@ -26,7 +26,7 @@ async def get_start(ctx):
     menu.add_item(button_jadwal)
 
     await ctx.send("Selamat datang di bot jadwal sekolah👋😊!\n"
-    "Tekan tombol 'Info' untuk melihat daftar perintah.\n"
+    "Tekan tombol 'Info' untuk melihat informasi tentang bot.\n"
     "Atau tekan tombol 'Help' untuk bantuan lebih lanjut.\n"
     "Atau langsung tekan tombol Jadwal Pelajaran Sekolah untuk melihat jadwal Anda", view=menu)
 
